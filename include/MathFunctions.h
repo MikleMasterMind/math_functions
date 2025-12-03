@@ -63,4 +63,4 @@ FunctionPtr operator/(const A& lhs, const B& rhs) {
     throw std::logic_error("Unsupported types for arithmetic operation");
 }
 
-double FindRoot(const FunctionPtr& func, double initialGuess, double learningRate, int iterations);
+double FindRoot(const FunctionPtr& func, double initialGuess, double rate, int iterations);

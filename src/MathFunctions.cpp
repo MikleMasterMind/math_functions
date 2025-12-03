@@ -148,7 +148,7 @@ FunctionPtr operator/(const FunctionPtr& lhs, const FunctionPtr& rhs) {
     return std::make_shared<DivideExpression>(lhs, rhs);
 }
 
-double FindRoot(const FunctionPtr& func, double initialGuess, double learningRate, int iterations) {
+double FindRoot(const FunctionPtr& func, double initialGuess, double rate, int iterations) {
     double x = initialGuess;
     for (int i = 0; i < iterations; ++i) {
         double y = (*func)(x);
@@ -156,7 +156,7 @@ double FindRoot(const FunctionPtr& func, double initialGuess, double learningRat
         if (dydx == 0.0) {
             throw std::runtime_error("Zero derivative encountered during gradient descent");
         }
-        x = x - learningRate * y / dydx;
+        x = x - rate * y / dydx;
     }
     return x;
 }
